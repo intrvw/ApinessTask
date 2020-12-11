@@ -2,7 +2,6 @@ import { Image, Thumbnail } from "native-base";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import ButtonWithTxt from "../CommonUtils/ButtonWithTxt";
-import BackGroundImg from "../../bitsPilani.jpeg"
 
 export default function HomeScreen({ navigation }) {
   const handleLogout = () => {
