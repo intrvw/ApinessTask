@@ -1,15 +1,17 @@
 import { Text, Input, Item, Label, Toast } from "native-base";
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ButtonWithTxt from "../CommonUtils/ButtonWithTxt";
+import { LoginDataSelector } from "../Redux/Selector";
 import { Colors } from "../Styles/AppStyles";
 
 export default function LoginScreen({ navigation }) {
-  const [loading, setLoading] = useState(false);
+  const {loginDetails} = useSelector(LoginDataSelector);
+  // console.log("+++++++++Details+++++++++"+loginDetails.password);
   const [credential, setCredential] = useState({
-    email: "",
-    password: "",
+    email: loginDetails.username,
+    password: loginDetails.password,
   });
   const handleEmail = (event) => {
     setCredential({

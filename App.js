@@ -1,11 +1,11 @@
 import { AppLoading } from "expo";
-import { Camera } from "expo-camera";
 import { useFonts } from "expo-font";
-import { StatusBar } from "expo-status-bar";
 import { Root } from "native-base";
 import React, { useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
 import Navigations from "./src/Navigators/Navigations";
+import { Provider } from 'react-redux';
+import configureStore from "./src/Redux/Configure/ConfigureStore"
+const store = configureStore();
 
 export default function App() {
   let [fontsloaded] = useFonts({
@@ -20,8 +20,10 @@ export default function App() {
   }
 
   return (
+    <Provider store={store} >
     <Root>
       <Navigations />
     </Root>
+    </Provider>
   );
 }
